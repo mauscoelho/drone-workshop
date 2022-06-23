@@ -3,7 +3,7 @@ const run = require("./index");
 const commandsList = [
   "command",
   "takeoff",
-  "down 20",
+  "down 10",
   "forward 330",
   "up 40",
   "right 150",
@@ -12,3 +12,4 @@ const commandsList = [
 ];
 
 run(commandsList);
+run(commandsList, "192.168.8.137");
