@@ -2,9 +2,8 @@ const { Observable, concat, from } = require("rxjs");
 const dgram = require("dgram");
 const server = dgram.createSocket("udp4");
 
-const run = (commandList, portConfig, hostConfig) => {
-  const port = portConfig || 8889;
-  const host = hostConfig || "192.168.8.237";
+const run = (commandList, host) => {
+  const port = 8889;
 
   server.on("error", (err) => {
     console.log(`server error:\n${err.stack}`);

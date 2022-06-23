@@ -19,4 +19,4 @@ const commandsList = [
   "land",
 ];
 
-run(commandsList);
+run(commandsList, "192.168.8.237");
