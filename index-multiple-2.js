@@ -2,7 +2,6 @@ const run = require("./index");
 
 const commandsList = [
   "command",
-  "speed 100",
   "takeoff",
   "forward 160",
   "go 0 0 60 100 m4",
@@ -16,4 +15,4 @@ const commandsList = [
   "emergency",
 ];
 
-run(commandsList, "192.168.8.237");
+run(commandsList, "192.168.8.142");
