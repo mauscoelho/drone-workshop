@@ -1,24 +1,24 @@
-const { Observable, concat } = require("rxjs");
+const { Observable, concat, from } = require("rxjs");
 const dgram = require("dgram");
 const server = dgram.createSocket("udp4");
 
-server.on("error", (err) => {
-  console.log(`server error:\n${err.stack}`);
-  server.close();
-});
-
-server.on("listening", () => {
-  const address = server.address();
-  console.log(`server listening ${address.address}:${address.port}`);
-});
-
-server.bind({
-  port: 8889,
-});
-
-const run = (commandList, hostConfig) => {
-  const port = 8889;
+const run = (commandList, portConfig, hostConfig) => {
+  const port = portConfig || 8889;
   const host = hostConfig || "192.168.8.237";
+
+  server.on("error", (err) => {
+    console.log(`server error:\n${err.stack}`);
+    server.close();
+  });
+
+  server.on("listening", () => {
+    const address = server.address();
+    console.log(`server listening ${address.address}:${address.port}`);
+  });
+
+  server.bind({
+    port: port,
+  });
 
   const commands = commandList.map(
     (newMessage) =>
